@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#f8f7f1">
+    <link rel="manifest" href="manifest.webmanifest">
+    <title>Sign in — Mark’s Savanna Stock</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sign-in.css">
+    
+  </head>
+  <body>
+    <!-- Brand and farm introduction panel -->
+    <section class="visual">
+      <a class="brand" href="landing.html"><span class="mark"><svg viewBox="0 0 24 24"><path d="M4 16.5c2-5 4-8 8-8s6 3 8 8M7 15h10M9 8l-1-3m7 3 1-3M5 17v2m14-2v2"/></svg></span>Mark’s Savanna Stock</a>
+      <div class="quote">
+        <small>Good stock. Grown with care.</small>
+        <h2>Buying from the farm, made easier.</h2>
+        <p>Sign in to keep your contact details handy and reach Mark about livestock in Kajiado.</p>
+        <div class="benefits">
+          <div><b>01</b><span>Browse current livestock listings</span></div>
+          <div><b>02</b><span>Ask the farm about an animal</span></div>
+          <div><b>03</b><span>Keep your buyer details together</span></div>
+        </div>
+      </div>
+    </section>
+    <!-- Sign-in content -->
+    <main class="form-side">
+      <div class="box">
+        <div class="toplink"><a class="mobilebrand" href="landing.html">Mark’s Savanna Stock</a><a href="landing.html">← Back to the farm website</a></div>
+        <div class="eyebrow">Customer account</div>
+        <h1 class="h1">Welcome back</h1>
+        <p class="sub">Sign in to view your Mark’s Savanna Stock account.</p>
+        <!-- Customer sign-in form -->
+      <form id="login">
+          <div class="field"><label for="email">Email address</label><input id="email" type="email" placeholder="you@example.com" autocomplete="username" required></div>
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="password-wrap"><input id="password" type="password" placeholder="Enter your password" autocomplete="current-password" required><button id="togglePassword" class="toggle" type="button" aria-label="Show password">Show</button></div>
+          </div>
+          <div class="login-options"><label class="remember"><input id="rememberMe" type="checkbox" checked> Keep me signed in</label><a class="forgot" href="mailto:meraprenish@gmail.com?subject=Password%20help">Forgot password?</a></div>
+          <div id="error" class="error"></div>
+          <button class="submit" type="submit">Sign in</button>
+        </form>
+        <div data-inline-style="sign-in-inline-1">
+          <div data-inline-style="sign-in-inline-2">M-Pesa payments</div>
+          <p data-inline-style="sign-in-inline-3">An M-Pesa payment prompt will be available after the farm’s business Till or Paybill is connected. Confirm the animal and final price with the farm before paying.</p>
+          <a data-inline-style="sign-in-inline-4" href="https://wa.me/254706894568">Ask the farm about payment details ↗</a>
+        </div>
+        <div class="note">Prototype only: this account exists in this browser, not on an online server. Do not reuse an important password.</div>
+        <div class="divider">New to the farm?</div>
+        <div class="bottom">New to the farm? <a href="create-account.html">Create your free buyer account</a><br><br>Just browsing? <a href="landing.html#livestock">Explore livestock</a><br><br>Need help? <a href="https://wa.me/254706894568" target="_blank" rel="noopener">Message the farm</a></div>
+        <div class="copyright">© <span id="year"></span> Mark’s Savanna Stock</div>
+      </div>
+    </main>
+    <!-- Sign-in validation and customer session -->
+    <script>
+document.getElementById('year').textContent=new Date().getFullYear();
+const users=()=>JSON.parse(localStorage.getItem('savanna-customer-accounts')||'[]');
+async function hashPassword(password,salt){const saltBytes=Uint8Array.from(salt.match(/.{2}/g),b=>parseInt(b,16));const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveBits']);const bits=await crypto.subtle.deriveBits({name:'PBKDF2',salt:saltBytes,iterations:210000,hash:'SHA-256'},key,256);return Array.from(new Uint8Array(bits),b=>b.toString(16).padStart(2,'0')).join('')}
+document.getElementById('togglePassword').addEventListener('click',()=>{const field=document.getElementById('password'),show=field.type==='password';field.type=show?'text':'password';document.getElementById('togglePassword').textContent=show?'Hide':'Show';document.getElementById('togglePassword').setAttribute('aria-label',show?'Hide password':'Show password')});
+document.getElementById('login').addEventListener('submit',async e=>{e.preventDefault();const email=document.getElementById('email').value.trim().toLowerCase(),password=document.getElementById('password').value;const user=users().find(u=>u.email===email);const error=document.getElementById('error');if(!user||await hashPassword(password,user.salt)!==user.passwordHash){error.textContent='We could not find an account with those details. Check them or create an account.';error.classList.add('show');return}if(document.getElementById('rememberMe').checked){localStorage.setItem('savanna-customer-session',email);sessionStorage.removeItem('savanna-customer-session')}else{localStorage.removeItem('savanna-customer-session');sessionStorage.setItem('savanna-customer-session',email)}location.href='customer-account.html'});
+</script>
+  </body>
+</html>

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#f8f7f1">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Mark’s Stock">
+    <title>Mark's Savanna Stock — Good stock. Grown with care.</title>
+    <meta name="description" content="Meet the livestock at Mark's Savanna Stock. Browse healthy cattle, goats, sheep and more, raised with care and ready for their next home.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="landing.css">
+    
+    
+  </head>
+  <body>
+    <!-- Primary site navigation -->
+    <nav class="nav">
+      <a class="brand" href="#top"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 16.5c2-5 4-8 8-8s6 3 8 8M7 15h10M9 8l-1-3m7 3 1-3M5 17v2m14-2v2M8 12l-2-1m10 1 2-1"/></svg></span><b>Mark's Savanna Stock</b></a>
+      <div class="links"><a href="#livestock">Our livestock</a><a href="#about">Our farm</a><a href="#why-us">Why buy from us</a><a href="#contact">Contact</a></div>
+      <div data-inline-style="landing-inline-1"><a href="sign-in.html" data-inline-style="landing-inline-2">Sign in</a><a class="nav-cta" href="#livestock">Find your next animal&nbsp; ↗</a></div>
+    </nav>
+    <main id="top">
+      <!-- Homepage introduction and livestock photo slideshow -->
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">Raised with care · Ready for you</div>
+          <h1>Good stock.<br><em>Good start.</em></h1>
+          <p>Meet the animals raised with care at Mark's Savanna Stock. Browse our available livestock and find the right fit for your farm, family, or business.</p>
+          <div class="hero-actions"><a class="btn" href="#livestock">Browse available livestock <svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a><a class="btn-light" href="#about">Meet our farm</a></div>
+          <div class="trust">
+            <div class="avatars"><span>🌾</span><span>🐄</span><span>🐐</span></div>
+            <div class="trust-text"><b>Raised on our farm, with care.</b><br>Honest details. A real conversation.</div>
+          </div>
+        </div>
+        <div class="hero-photo" id="livestockSlideshow" role="region" aria-roledescription="carousel" aria-label="Maasai livestock photographs">
+          <div class="photo-badge">
+            <div class="badge-top"><i class="badge-dot"></i>Representative photos</div>
+            <small>Maasai livestock in Kenya</small>
+          </div>
+          <div class="photo-label"><small id="slideEyebrow">Maasai cattle · Kenya</small><b id="slideCaption">Livestock traditions of the Kenyan savanna</b></div>
+          <div class="photo-credit-link" id="slideCredit"></div>
+          <div class="slide-controls"><button type="button" id="slidePrev" aria-label="Previous livestock photo">‹</button><button type="button" id="slidePause" class="slide-pause" aria-label="Pause slideshow">Pause</button><button type="button" id="slideNext" aria-label="Next livestock photo">›</button></div>
+          <span id="slideStatus" class="slide-status" aria-live="polite"></span>
+        </div>
+      </section>
+      <!-- Farm trust highlights -->
+      <section class="proof">
+        <div class="proof-inner">
+          <div class="proof-item"><svg viewBox="0 0 24 24"><path d="m12 3 8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4Z"/><path d="m8 12 2.5 2.5L16 9"/></svg><span><b>Care you can see</b>Healthy, well-raised animals</span></div>
+          <div class="proof-item"><svg viewBox="0 0 24 24"><path d="M4 19V5m0 14h17M7 15l4-5 3 2 5-7"/></svg><span><b>Clear information</b>Know what you’re buying</span></div>
+          <div class="proof-item"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"/></svg><span><b>Talk to the farmer</b>Ask questions before you buy</span></div>
+          <div class="proof-item"><svg viewBox="0 0 24 24"><path d="M3 11 12 3l9 8v9H3v-9Z"/><path d="M9 20v-6h6v6"/></svg><span><b>Farm raised</b>From our farm to yours</span></div>
+        </div>
+      </section>
+      <!-- Available livestock catalogue and filters -->
+      <section class="section" id="livestock">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">A good home starts here</div>
+            <h2>Livestock from the savanna</h2>
+            <p class="section-desc">Explore the animals kept across Maasai country and see current market guides.</p>
+          </div>
+          <a class="see-all" href="#contact">Have a question? &nbsp;↗</a>
+        </div>
+        <p class="section-desc" data-inline-style="landing-inline-3">Market guide prices are dated public references, not confirmed farm listings. Ask the farm to confirm real availability, animal details, and the current price.</p>
+        <div class="market-tools">
+          <input id="listingSearch" type="search" placeholder="Search livestock, breed, or tag" aria-label="Search listings">
+          <select id="listingType" aria-label="Filter by animal type"><option value="all">All animal types</option><option>Cattle</option><option>Goat</option><option>Sheep</option><option>Chicken</option><option>Donkey</option><option>Camel</option></select>
+          <select id="listingSort" aria-label="Sort listings"><option value="recent">Recently listed</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="name">Name A–Z</option></select>
+          <span id="listingCount" class="listing-count"></span>
+        </div>
+        <div class="cards" id="cards"></div>
+        <p class="market-price-note">Price references checked 29 Sep 2026. Cattle and goat figures are Kajiado county averages reported 31 Aug 2026; sheep is KSh 550/kg at Kajiado Livestock Market on 14 Sep 2026. Camel and donkey references are from Turkana (Feb 2026) and Meru (Jul 2026); the Kienyeji chicken figure is a Kajiado seller asking price. <a href="https://beavorenventures.co.ke/livestockpriceske/prices/cattle" target="_blank" rel="noopener">Cattle price source</a> · <a href="https://beavorenventures.co.ke/livestockpriceske/prices/goat" target="_blank" rel="noopener">Goat price source</a> · <a href="https://mkulimahub.co.ke/market-prices" target="_blank" rel="noopener">Kajiado sheep live-weight source</a> · <a href="https://knowledgeweb.ndma.go.ke/Library/doclink.aspx?document=c45f1457-5532-4a5d-b093-38e3cdf275d4" target="_blank" rel="noopener">Camel reference</a> · <a href="https://portal.mkulimabora.org/market-prices/donkey" target="_blank" rel="noopener">Donkey reference</a> · <a href="https://jiji.co.ke/kajiado/74-chickens" target="_blank" rel="noopener">Kajiado chicken listings</a>. Market prices move with condition, breed, age, weight, season, and market.</p>
+      </section>
+      <!-- Reasons to buy from the farm -->
+      <section class="features" id="why-us">
+        <div class="features-inner">
+          <div class="features-head">
+            <div class="eyebrow">Buying with confidence</div>
+            <h2>A little more care goes a long way.</h2>
+            <p>We believe good livestock starts with good care, and a good sale starts with trust.</p>
+          </div>
+          <div class="feature-grid">
+            <article class="feature">
+              <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 3 20 7v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4Z"/><path d="m8 12 2.5 2.5L16 9"/></svg></div>
+              <h3>Raised with care</h3>
+              <p>Every animal is part of our farm family. We take care to provide the attention and conditions they need to thrive.</p>
+            </article>
+            <article class="feature">
+              <div class="feature-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+              <h3>Details that matter</h3>
+              <p>See the animal’s breed, age, and weight up front. We want you to feel informed before you get in touch.</p>
+            </article>
+            <article class="feature">
+              <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"/></svg></div>
+              <h3>A real conversation</h3>
+              <p>Have a question or want to arrange a visit? Talk directly with us. We’re happy to help you find the right fit.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- About the farm -->
+      <section class="story" id="about">
+        <div class="story-photo" role="img" aria-label="Open green farmland"></div>
+        <div class="story-copy">
+          <div class="eyebrow">A farm with heart</div>
+          <h2>We care for our animals like they’re part of the family.</h2>
+          <p>At Mark's Savanna Stock, we believe healthy animals and happy customers go hand in hand. We take pride in the way we raise our livestock and in being open about every animal we offer.</p>
+          <p>Whether you’re growing your herd, starting out, or looking for one special animal, we’d love to help you find it.</p>
+          <div class="story-points">
+            <div class="point"><b>Good care</b><span>Every day, all year</span></div>
+            <div class="point"><b>Honest sales</b><span>No surprises</span></div>
+          </div>
+        </div>
+      </section>
+      <!-- Contact and livestock enquiry form -->
+      <section class="contact" id="contact">
+        <div><h2>Found one you like?</h2><p>Ask us about availability, arrange a visit, or simply learn a little more.</p></div>
+        <a class="btn" href="https://wa.me/254706894568?text=Hello%2C%20I%20am%20interested%20in%20your%20livestock." target="_blank" rel="noopener">Chat on WhatsApp&nbsp; ↗</a>
+      </section>
+      <!-- Buyer guide -->
+      <section class="section" id="buying-guide" data-inline-style="landing-inline-4">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">A straightforward sale</div>
+            <h2>Buying from the farm</h2>
+            <p class="section-desc">Know the animal, agree on terms, and confirm payment safely.</p>
+          </div>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <div class="feature-icon">01</div>
+            <h3>Ask and confirm</h3>
+            <p>Contact Mark to confirm the animal is still available and agree the final KSh price.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon">02</div>
+            <h3>Review animal details</h3>
+            <p>Ask about health, vaccinations, and arrange an inspection before you commit.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon">03</div>
+            <h3>Agree payment and collection</h3>
+            <p>Confirm the official M-Pesa business details and collection or delivery plan directly with the farm before paying.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+    <!-- Contact details and site footer -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div><a class="brand" href="#top"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 16.5c2-5 4-8 8-8s6 3 8 8M7 15h10M9 8l-1-3m7 3 1-3M5 17v2m14-2v2"/></svg></span><b>Mark's Savanna Stock</b></a><p>Good stock, raised with care in Kajiado.</p></div>
+        <div><b>Contact the farm</b><p><a href="tel:+254706894568">☎ 0706 894 568</a></p><p><a href="https://wa.me/254706894568" target="_blank" rel="noopener">◉ WhatsApp the farm</a></p><p><a href="mailto:meraprenish@gmail.com">✉ meraprenish@gmail.com</a></p><p>⌖ Kajiado, Kenya</p></div>
+        <div><b>Explore</b><p><a href="#livestock">Available livestock</a></p><p><a href="#about">About the farm</a></p><p><a href="sign-in.html">Farm sign in</a></p><button id="installButton" type="button">Install app</button></div>
+      </div>
+      <div data-inline-style="landing-inline-5">© <span id="year"></span> Mark's Savanna Stock. All rights reserved.<span>Good stock. Grown with care.</span></div>
+    </footer>
+    <div class="modal" id="enquiry">
+      <div class="dialog">
+        <div class="dialog-head"><h3>Ask about <span id="askName"></span></h3><button class="x" onclick="closeEnquiry()">×</button></div>
+        <p>Send your question directly to the farm on WhatsApp.</p>
+        <label for="buyerName">Your name</label>
+        <input id="buyerName" placeholder="Your name">
+        <label for="buyerContact">Phone or email</label>
+        <input id="buyerContact" placeholder="How can we reach you?">
+        <label for="buyerMessage">Your message</label>
+        <textarea id="buyerMessage" placeholder="I’m interested in this animal. Is it still available?"></textarea>
+        <button class="btn" onclick="sendEnquiry()">Send enquiry on WhatsApp ↗</button>
+        <div class="notice" id="enquiryNotice">Or email <a href="mailto:meraprenish@gmail.com">meraprenish@gmail.com</a></div>
+      </div>
+    </div>
+    <!-- Page interactions: slideshow, catalogue, enquiries, and app installation -->
+    <script>
+const photos={Cattle:{url:'https://upload.wikimedia.org/wikipedia/commons/b/bb/Boran_cattle_in_Kenya.jpg',page:'https://commons.wikimedia.org/wiki/File:Boran_cattle_in_Kenya.jpg',credit:'Boran cattle · ILRI · CC BY 2.0'},Chicken:{url:'https://upload.wikimedia.org/wikipedia/commons/f/fe/Kenyan_backyard_chicken_rooster.jpg',page:'https://commons.wikimedia.org/wiki/File:Kenyan_backyard_chicken_rooster.jpg',credit:'Backyard chicken · Ngangaesther · CC BY-SA 4.0'},Goat:{url:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Maasai_Goats_and_Sheep_Gathering_under_a_tree.jpg/1280px-Maasai_Goats_and_Sheep_Gathering_under_a_tree.jpg',page:'https://commons.wikimedia.org/wiki/File:Maasai_Goats_and_Sheep_Gathering_under_a_tree.jpg',credit:'Maasai goats · Yganyana · CC BY-SA 4.0'},Sheep:{url:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Maasai_Goats_and_Sheep_Gathering_under_a_tree.jpg/1280px-Maasai_Goats_and_Sheep_Gathering_under_a_tree.jpg',page:'https://commons.wikimedia.org/wiki/File:Maasai_Goats_and_Sheep_Gathering_under_a_tree.jpg',credit:'Maasai sheep · Yganyana · CC BY-SA 4.0'}};const fallback=[{name:'Nia',type:'Cattle',breed:'Boran',age:'2 years',weight:'320 kg',price:850,emoji:'🐄',status:'Listed',location:'Kajiado'},{name:'Kuku 01',type:'Chicken',breed:'Kienyeji',age:'6 months',weight:'2.1 kg',price:18,emoji:'🐓',status:'Listed',location:'Kajiado'}];let inventory;try{inventory=JSON.parse(localStorage.getItem('herdbook-animals'))||fallback}catch{inventory=fallback}let livestock=[];const fmt=n=>n?'KSh '+new Intl.NumberFormat('en-KE',{maximumFractionDigits:0}).format(n):'Ask for price';const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));function draw(){const q=(document.getElementById('listingSearch')?.value||'').trim().toLowerCase(),type=document.getElementById('listingType')?.value||'all',sort=document.getElementById('listingSort')?.value||'recent';livestock=inventory.filter(a=>a.status==='Listed'&&(type==='all'||a.type===type)&&[a.name,a.type,a.breed,a.location].join(' ').toLowerCase().includes(q));if(sort==='price-low')livestock.sort((a,b)=>(+a.price||Infinity)-(+b.price||Infinity));if(sort==='price-high')livestock.sort((a,b)=>(+b.price||0)-(+a.price||0));if(sort==='name')livestock.sort((a,b)=>a.name.localeCompare(b.name));document.getElementById('listingCount').textContent=livestock.length+' listing'+(livestock.length===1?'':'s');let cards=document.getElementById('cards');cards.innerHTML=livestock.length?livestock.map((a,i)=>`<article class="card"><div class="card-pic">${(a.image||photos[a.type])?`<img src="${esc(a.image||photos[a.type].url)}" alt="${esc(a.image?a.name:photos[a.type].credit)}" onerror="this.hidden=true;this.nextElementSibling.hidden=false">`:`<img hidden><span class="emoji">${a.emoji||'🐄'}</span>`}<span class="for-sale">Available now</span></div><div class="card-body"><div class="card-title">${esc(a.name)} · ${esc(a.type)}</div><div class="card-desc">${esc(a.breed||'Breed on request')} &nbsp;·&nbsp; ${esc(a.age||'Age on request')} &nbsp;·&nbsp; ${esc(a.weight||'Weight on request')}</div><div class="listing-loc">⌖ ${esc(a.location||'Kajiado, Kenya')} · Health and vaccination details: ${esc(a.health||'ask the farm')}</div><div class="photo-credit">${a.image?'Farm photo':photos[a.type]?`Reference photo · <a href="${photos[a.type].page}" target="_blank" rel="noopener">${photos[a.type].credit}</a>`:'Illustrative image'}</div><div class="card-bottom"><span class="card-price">${fmt(a.price)}</span><button class="ask" onclick="openEnquiry(${i})">Ask about it&nbsp; ↗</button></div></div></article>`).join(''):'<div class="empty">No animals are listed right now. Please check back soon or get in touch with the farm.</div>'}let selected;function openEnquiry(i){selected=livestock[i];document.getElementById('askName').textContent=selected.name;document.getElementById('buyerMessage').value=`Hello, I’m interested in ${selected.name} (${selected.type}). Is it still available?`;document.getElementById('enquiry').classList.add('open')}function closeEnquiry(){document.getElementById('enquiry').classList.remove('open')}function sendEnquiry(){const name=document.getElementById('buyerName').value.trim(),contact=document.getElementById('buyerContact').value.trim(),message=document.getElementById('buyerMessage').value.trim();const body=`Hello Mark's Savanna Stock,\n\n${message}\n\nAnimal: ${selected.name} (${selected.type})\nMy name: ${name||'Not provided'}\nMy contact: ${contact||'Not provided'}`;window.open('https://wa.me/254706894568?text='+encodeURIComponent(body),'_blank','noopener')}document.getElementById('enquiry').addEventListener('click',e=>{if(e.target.id==='enquiry')closeEnquiry()});document.getElementById('year').textContent=new Date().getFullYear();draw();['listingSearch','listingType','listingSort'].forEach(id=>document.getElementById(id).addEventListener(id==='listingSearch'?'input':'change',draw));let installPrompt;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e});document.getElementById('installButton').addEventListener('click',async()=>{if(installPrompt){installPrompt.prompt();await installPrompt.userChoice;installPrompt=null}else{alert('To install, open your browser menu and choose “Install app” or “Add to Home Screen”.')}});if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('service-worker.js').catch(()=>{}));
+</script>
+    <script>
+(()=>{
+ const marketGuide=[
+  {name:"Kajiado cattle market guide",type:"Cattle",breed:"Maasai Zebu / local cattle",age:"County average",weight:"Medium animal · Aug 2026",price:43773,emoji:"🐄",status:"Listed",location:"Kajiado · KSh per head",health:"Market reference · confirm current animal and price",referenceOnly:true},
+  {name:"Kajiado goat market guide",type:"Goat",breed:"Local Maasai goat",age:"County average",weight:"Aug 2026",price:8482,emoji:"🐐",status:"Listed",location:"Kajiado · KSh per head",health:"Market reference · confirm current animal and price",referenceOnly:true},
+  {name:"Kajiado sheep market guide (per kg)",type:"Sheep",breed:"Red Maasai sheep",age:"Live-weight rate",weight:"Kajiado · Sep 2026",price:550,emoji:"🐑",status:"Listed",location:"Kajiado · price per kg",health:"Market reference · confirm current animal and price",referenceOnly:true},
+  {name:"Kenyan camel market guide",type:"Camel",breed:"Camel",age:"4 years",weight:"Turkana · Feb 2026",price:26869,emoji:"🐪",status:"Listed",location:"Turkana · KSh per head",health:"Market reference · confirm current animal and price",referenceOnly:true},
+  {name:"Kenyan donkey market guide",type:"Donkey",breed:"Local donkey",age:"Market reference",weight:"Meru · Jul 2026",price:8000,emoji:"🫏",status:"Listed",location:"Meru · KSh per head",health:"Market reference · confirm current animal and price",referenceOnly:true},
+  {name:"Kajiado Kienyeji chicken guide",type:"Chicken",breed:"Indigenous / Kienyeji",age:"Seller asking price",weight:"Kajiado listing",price:1000,emoji:"🐓",status:"Listed",location:"Kajiado · KSh per bird",health:"Market reference · confirm current bird and price",referenceOnly:true}
+ ];
+ try{const saved=JSON.parse(localStorage.getItem("herdbook-animals"));const preview=!Array.isArray(saved)||saved.length===0||saved.every(a=>["Nia","Kuku 01"].includes(a.name));if(preview){localStorage.setItem("herdbook-animals",JSON.stringify(marketGuide));inventory=marketGuide;draw();}}catch{}
+ const cards=document.getElementById("cards");const labelGuides=()=>cards.querySelectorAll(".card").forEach(card=>{const title=card.querySelector(".card-title")?.textContent||"";if(!title.includes("market guide")&&!title.includes("chicken guide"))return;const badge=card.querySelector(".for-sale");if(badge&&badge.textContent!=="Market guide"){badge.textContent="Market guide";badge.classList.add("market-badge");}if(title.includes("(per kg)")){const price=card.querySelector(".card-price");if(price&&!price.textContent.includes("/ kg"))price.textContent+=" / kg";}});new MutationObserver(labelGuides).observe(cards,{childList:true,subtree:true});labelGuides();
+})();
+</script>
+    <script>
+(()=>{
+ const slides=[
+  {image:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Maasai_cattle%2C_Kenya.jpg/1280px-Maasai_cattle%2C_Kenya.jpg',eyebrow:'Maasai cattle · Kenya',caption:'Livestock traditions of the Kenyan savanna',author:'imaginextra',license:'CC BY 2.0',source:'https://commons.wikimedia.org/wiki/File:Maasai_cattle,_Kenya.jpg',licenseUrl:'https://creativecommons.org/licenses/by/2.0/'},
+  {image:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Maasai_Goats_and_Sheep_Gathering_under_a_tree.jpg/1280px-Maasai_Goats_and_Sheep_Gathering_under_a_tree.jpg',eyebrow:'Maasai goats and sheep · Kenya',caption:'Goats and sheep resting in the shade',author:'Yganyana',license:'CC BY-SA 4.0',source:'https://commons.wikimedia.org/wiki/File:Maasai_Goats_and_Sheep_Gathering_under_a_tree.jpg',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'},
+  {image:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Maasai_sheep%2C_Kenya.jpg/1280px-Maasai_sheep%2C_Kenya.jpg',eyebrow:'Maasai Red sheep · Kenya',caption:'A traditional fat-tailed sheep breed',author:'John Atherton',license:'CC BY-SA 2.0',source:'https://commons.wikimedia.org/wiki/File:Maasai_sheep,_Kenya.jpg',licenseUrl:'https://creativecommons.org/licenses/by-sa/2.0/'}
+ ];
+ const frame=document.getElementById('livestockSlideshow');let index=0,paused=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if(!frame)return;
+ function show(next){index=(next+slides.length)%slides.length;const s=slides[index];frame.style.backgroundImage=`url("${s.image}")`;document.getElementById('slideEyebrow').textContent=s.eyebrow;document.getElementById('slideCaption').textContent=s.caption;document.getElementById('slideCredit').innerHTML=`Photo: <a href="${s.source}" target="_blank" rel="noopener">${s.author}</a> · <a href="${s.licenseUrl}" target="_blank" rel="noopener">${s.license}</a>`;document.getElementById('slideStatus').textContent=`Photo ${index+1} of ${slides.length}: ${s.eyebrow}. ${s.caption}`;}
+ function setPaused(value){paused=value;const button=document.getElementById('slidePause');button.textContent=paused?'Play':'Pause';button.setAttribute('aria-label',paused?'Play slideshow':'Pause slideshow');}
+ document.getElementById('slidePrev').addEventListener('click',()=>show(index-1));document.getElementById('slideNext').addEventListener('click',()=>show(index+1));document.getElementById('slidePause').addEventListener('click',()=>setPaused(!paused));show(0);setPaused(paused);setInterval(()=>{if(!paused)show(index+1)},6500);
+})();
+</script>
+  </body>
+</html>

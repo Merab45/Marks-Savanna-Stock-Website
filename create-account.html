@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#f8f7f1">
+    <link rel="manifest" href="manifest.webmanifest">
+    <title>Create account — Mark’s Savanna Stock</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="create-account.css">
+  </head>
+  <body>
+    <!-- Brand and farm introduction panel -->
+    <section class="visual">
+      <a class="brand" href="landing.html"><span class="mark"><svg viewBox="0 0 24 24"><path d="M4 16.5c2-5 4-8 8-8s6 3 8 8M7 15h10M9 8l-1-3m7 3 1-3M5 17v2m14-2v2"/></svg></span>Mark’s Savanna Stock</a>
+      <div class="quote"><small>Good stock. Grown with care.</small><h2>Find the right livestock for your farm.</h2><p>Create an account to keep your details handy when you contact us.</p></div>
+    </section>
+    <!-- Account creation content -->
+    <main class="form-side">
+      <div class="box">
+        <div class="toplink"><a class="mobilebrand" href="landing.html">Mark’s Savanna Stock</a><a href="landing.html">← Back to the farm website</a></div>
+        <div class="eyebrow">Customer account</div>
+        <h1 class="h1">Create your account</h1>
+        <p class="sub">It only takes a minute to get started.</p>
+        <!-- New customer registration form -->
+      <form id="signup">
+          <div class="field"><label for="name">Full name</label><input id="name" autocomplete="name" placeholder="Your full name" required></div>
+          <div class="field"><label for="email">Email address</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+          <div class="field"><label for="phone">Phone number</label><input id="phone" type="tel" autocomplete="tel" placeholder="Your phone number" required></div>
+          <div class="field"><label for="password">Create password</label><input id="password" type="password" autocomplete="new-password" minlength="8" placeholder="At least 8 characters" required></div>
+          <div class="field"><label for="confirm">Confirm password</label><input id="confirm" type="password" autocomplete="new-password" minlength="8" placeholder="Enter password again" required></div>
+          <div id="error" class="error"></div>
+          <button class="submit" type="submit">Create account</button>
+        </form>
+        <div class="note">Prototype only: the account stays in this browser and is not a secure online account. Do not reuse an important password.</div>
+        <div class="bottom">Already have an account? <a href="sign-in.html">Sign in</a></div>
+        <div class="copyright">© <span id="year"></span> Mark’s Savanna Stock</div>
+      </div>
+    </main>
+    <!-- Registration and browser account storage -->
+    <script>
+document.getElementById('year').textContent=new Date().getFullYear();const users=()=>JSON.parse(localStorage.getItem('savanna-customer-accounts')||'[]');async function hashPassword(password,salt){const saltBytes=Uint8Array.from(salt.match(/.{2}/g),b=>parseInt(b,16));const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveBits']);const bits=await crypto.subtle.deriveBits({name:'PBKDF2',salt:saltBytes,iterations:210000,hash:'SHA-256'},key,256);return Array.from(new Uint8Array(bits),b=>b.toString(16).padStart(2,'0')).join('')};document.getElementById('signup').addEventListener('submit',async e=>{e.preventDefault();const name=document.getElementById('name').value.trim(),email=document.getElementById('email').value.trim().toLowerCase(),phone=document.getElementById('phone').value.trim(),password=document.getElementById('password').value,confirm=document.getElementById('confirm').value,error=document.getElementById('error');if(password!==confirm){error.textContent='Those passwords do not match.';error.classList.add('show');return}const list=users();if(list.some(user=>user.email===email)){error.textContent='An account with this email already exists. Sign in instead.';error.classList.add('show');return}const salt=crypto.getRandomValues(new Uint8Array(16));const saltText=Array.from(salt,b=>b.toString(16).padStart(2,'0')).join('');list.push({name,email,phone,salt:saltText,passwordHash:await hashPassword(password,saltText),createdAt:new Date().toISOString()});localStorage.setItem('savanna-customer-accounts',JSON.stringify(list));localStorage.setItem('savanna-customer-session',email);location.href='customer-account.html'});
+</script>
+  </body>
+</html>

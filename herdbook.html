@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#f6f5ef">
+    <link rel="manifest" href="manifest.webmanifest">
+    <title>Martin’s Savanna Stock — Livestock, in good order</title>
+    <link rel="stylesheet" href="herdbook.css">
+  </head>
+  <body>
+    <div class="shell">
+      <!-- Farm dashboard sidebar -->
+      <aside>
+        <div class="brand">
+          <div class="brand-mark"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 16.5c2-5 4-8 8-8s6 3 8 8M7 15h10M9 8l-1-3m7 3 1-3M5 17v2m14-2v2M8 12l-2-1m10 1 2-1"/><path d="M10 16v3m4-3v3"/></svg></div>
+          <div>
+            <div class="brand-name">herdbook</div>
+            <div class="brand-sub">Farm, in order</div>
+          </div>
+        </div>
+        <div class="nav-label">Workspace</div>
+        <!-- Dashboard section navigation -->
+        <nav class="nav" id="nav"><button class="active" data-page="overview"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="11" width="7" height="10" rx="1.5"/><rect x="3" y="14" width="8" height="7" rx="1.5"/></svg>Overview</button><button data-page="animals"><svg viewBox="0 0 24 24"><path d="M4 16.5c2-5 4-8 8-8s6 3 8 8M7 15h10M9 8l-1-3m7 3 1-3M5 17v2m14-2v2M8 12l-2-1m10 1 2-1"/></svg>My animals</button><button data-page="market"><svg viewBox="0 0 24 24"><path d="M3 10h18l-1.5-6h-15L3 10Zm2 0v10h14V10M9 20v-6h6v6M3 10a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/></svg>Marketplace</button><button data-page="sales"><svg viewBox="0 0 24 24"><path d="M4 5h16v15H4zM8 3v4m8-4v4M4 10h16"/><path d="m8 15 2 2 5-5"/></svg>Sales & records</button></nav>
+        <a href="landing.html" data-inline-style="herdbook-inline-1">↗ &nbsp; Public farm website</a>
+        <div class="farm-card">
+          <div class="small">YOUR FARM</div>
+          <div class="farm-name">Mark's Savanna Stock</div>
+          <div class="farm-bottom">
+            <div class="avatar">MS</div>
+            <span>Farm account</span>
+          </div>
+        </div>
+      </aside>
+      <!-- Farm records workspace -->
+      <main class="main">
+        <header class="topbar">
+          <div class="mobile-brand">herdbook</div>
+          <div class="crumb">Workspace &nbsp;/&nbsp; <b id="crumb">Overview</b></div>
+          <div class="top-actions">
+            <span class="today" id="dateText"></span>
+            <button class="notify" aria-label="Notifications"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-8 12h4"/></svg></button>
+            <div class="avatar">MS</div>
+          </div>
+        </header>
+        <div class="content">
+          <!-- Farm overview and summary -->
+          <section id="page-overview" class="section show">
+            <div class="heading-row">
+              <div>
+                <div class="eyebrow">Monday, looking good</div>
+                <h1 class="page-title">Good morning, farmer.</h1>
+                <p class="subtitle">Here’s what’s happening across your farm.</p>
+              </div>
+              <button class="primary" onclick="openModal()"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add an animal</button>
+            </div>
+            <div class="stats" id="stats"></div>
+            <div class="grid">
+              <div class="panel">
+                <div class="panel-head">
+                  <div>
+                    <div class="panel-title">Recently added</div>
+                    <div class="panel-sub">Your latest animal records</div>
+                  </div>
+                  <button class="text-link" onclick="navigate('animals')">View all →</button>
+                </div>
+                <div class="animal-list" id="recentAnimals"></div>
+              </div>
+              <div>
+                <div class="panel">
+                  <div class="panel-head">
+                    <div>
+                      <div class="panel-title">Recent activity</div>
+                      <div class="panel-sub">The latest from your farm</div>
+                    </div>
+                  </div>
+                  <div class="activity" id="activity"></div>
+                </div>
+                <div class="promo">
+                  <div class="promo-label">Reach more buyers</div>
+                  <h3>Your next buyer is out there.</h3>
+                  <p>Put your available livestock in front of people looking to buy.</p>
+                  <button onclick="navigate('market')">Explore marketplace &nbsp;↗</button>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Animal records and inventory -->
+          <section id="page-animals" class="section">
+            <div class="heading-row">
+              <div>
+                <div class="eyebrow">Your farm records</div>
+                <h1 class="page-title">My animals</h1>
+                <p class="subtitle">Keep every animal’s details together.</p>
+              </div>
+              <button class="primary" onclick="openModal()">＋ Add an animal</button>
+            </div>
+            <div class="toolbar">
+              <input class="search" id="animalSearch" placeholder="Search by name, tag or breed…">
+              <select class="filter" id="animalFilter"><option value="all">All status</option><option>Available</option><option>Listed</option><option>Sold</option></select>
+            </div>
+            <div class="panel table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr><th>Animal</th><th>Type & breed</th><th>Age</th><th>Weight</th><th>Status</th><th>Price</th></tr>
+                </thead>
+                <tbody id="animalsTable"></tbody>
+              </table>
+            </div>
+          </section>
+          <!-- Public livestock listings -->
+          <section id="page-market" class="section">
+            <div class="heading-row">
+              <div>
+                <div class="eyebrow">Find your next buyer</div>
+                <h1 class="page-title">Marketplace</h1>
+                <p class="subtitle">Livestock you’re advertising to buyers.</p>
+              </div>
+              <button class="primary" onclick="openModal()">＋ Add an animal</button>
+            </div>
+            <div class="toolbar">
+              <input class="search" id="marketSearch" placeholder="Search listings…">
+              <select class="filter" id="marketFilter"><option value="all">All animals</option><option>Cattle</option><option>Goat</option><option>Sheep</option><option>Chicken</option><option>Donkey</option><option>Camel</option></select>
+              <span data-inline-style="herdbook-inline-2" id="listingCount"></span>
+            </div>
+            <div class="listing-grid" id="listingGrid"></div>
+          </section>
+          <!-- Completed sales and records -->
+          <section id="page-sales" class="section">
+            <div class="heading-row">
+              <div>
+                <div class="eyebrow">Your farm’s history</div>
+                <h1 class="page-title">Sales & records</h1>
+                <p class="subtitle">Track completed sales and keep your records close.</p>
+              </div>
+              <button class="primary" onclick="openModal()">＋ Add an animal</button>
+            </div>
+            <div class="stats" id="salesStats"></div>
+            <div class="panel">
+              <div class="panel-head">
+                <div>
+                  <div class="panel-title">Sales history</div>
+                  <div class="panel-sub">Completed livestock sales</div>
+                </div>
+              </div>
+              <div class="table-wrap">
+                <table class="data-table">
+                  <thead>
+                    <tr><th>Animal</th><th>Type</th><th>Sale date</th><th>Buyer</th><th>Sale price</th><th>Notes</th></tr>
+                  </thead>
+                  <tbody id="salesTable"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <div class="modal-backdrop" id="modal">
+      <div class="modal">
+        <div class="modal-head"><h2>Add an animal</h2><button class="close" onclick="closeModal()">×</button></div>
+        <!-- Add or edit animal form -->
+      <form class="form" id="animalForm">
+          <div class="form-grid">
+            <div class="field"><label>Animal name or tag *</label><input name="name" required placeholder="e.g. Nia or C-014"></div>
+            <div class="field">
+              <label>Type *</label>
+              <select name="type" required><option value="">Choose type</option><option>Cattle</option><option>Goat</option><option>Sheep</option><option>Chicken</option><option>Donkey</option><option>Camel</option><option>Pig</option><option>Other</option></select>
+            </div>
+            <div class="field"><label>Breed</label><input name="breed" placeholder="e.g. Boran"></div>
+            <div class="field"><label>Age</label><input name="age" placeholder="e.g. 2 years"></div>
+            <div class="field"><label>Weight</label><input name="weight" placeholder="e.g. 320 kg"></div>
+            <div class="field"><label>Farm location</label><input name="location" value="Kajiado" placeholder="Town or county"></div>
+            <div class="field"><label>Asking price (KSh)</label><input name="price" type="number" min="0" placeholder="Leave blank to ask"></div>
+            <div class="field"><label>Photo link</label><input name="image" type="url" placeholder="Paste a link, or upload a photo below"></div>
+            <div class="field"><label>Upload animal photo</label><input name="photoFile" type="file" accept="image/*"></div>
+            <div class="field full"><label>Health and vaccination details</label><input name="health" placeholder="e.g. vaccinated, healthy, treatment history"></div>
+            <div class="field">
+              <label>Status</label>
+              <select name="status"><option>Available</option><option>Listed</option><option>Sold</option></select>
+            </div>
+            <div class="field"><label>Sale date (if sold)</label><input name="saleDate" type="date"></div>
+            <div class="field full"><label>Buyer / notes</label><textarea name="notes" placeholder="Add any useful details about this animal"></textarea></div>
+          </div>
+          <div class="form-foot"><button class="quiet" type="button" onclick="closeModal()">Cancel</button><button class="primary" type="submit">Save animal</button></div>
+        </form>
+      </div>
+    </div>
+    <div class="toast" id="toast"></div>
+    <!-- Farm records, listing, and sales interactions -->
+    <script>
+const seed=[{id:1,name:'Nia',type:'Cattle',breed:'Boran',age:'2 years',weight:'320 kg',status:'Listed',price:850,emoji:'🐄',notes:'Healthy, vaccinated',saleDate:''},{id:2,name:'Kito',type:'Goat',breed:'Boer cross',age:'1 year',weight:'42 kg',status:'Available',price:180,emoji:'🐐',notes:'Twin-born, strong frame',saleDate:''},{id:3,name:'Malaika',type:'Cattle',breed:'Friesian',age:'3 years',weight:'410 kg',status:'Available',price:1200,emoji:'🐄',notes:'Good milking line',saleDate:''},{id:4,name:'Pili',type:'Sheep',breed:'Dorper',age:'8 months',weight:'31 kg',status:'Sold',price:140,emoji:'🐑',notes:'Sold to A. Mwangi',saleDate:'2026-09-22'},{id:5,name:'Kuku 01',type:'Chicken',breed:'Kienyeji',age:'6 months',weight:'2.1 kg',status:'Listed',price:18,emoji:'🐓',notes:'Free range',saleDate:''}];let animals;try{animals=JSON.parse(localStorage.getItem('herdbook-animals'))||seed}catch{animals=seed}const persist=()=>localStorage.setItem('herdbook-animals',JSON.stringify(animals));const icons={cow:'<svg viewBox="0 0 24 24"><path d="M4 16.5c2-5 4-8 8-8s6 3 8 8M7 15h10M9 8l-1-3m7 3 1-3M5 17v2m14-2v2M8 12l-2-1m10 1 2-1"/></svg>',tag:'<svg viewBox="0 0 24 24"><path d="M20 13 11 4H4v7l9 9 7-7Z"/><circle cx="8" cy="8" r="1"/></svg>',cart:'<svg viewBox="0 0 24 24"><path d="M3 4h2l2.5 11h11L21 8H7M10 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm7 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg>',cash:'<svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M7 6V4h10v2m-5 4v5m2-4c0-1-1-1-2-1s-2 0-2 1 1 1 2 1 2 0 2 1-1 1-2 1-2 0-2-1"/></svg>'};function money(v){return v?'KSh '+new Intl.NumberFormat('en-KE',{maximumFractionDigits:0}).format(v):'—'}function animalEmoji(a){return a.emoji||({Cattle:'🐄',Goat:'🐐',Sheep:'🐑',Chicken:'🐓',Donkey:'🫏',Camel:'🐪',Pig:'🐖'}[a.type]||'🐂')}function statusClass(s){return s.toLowerCase()}function statusTag(s){return `<span class="tag ${statusClass(s)}">${s}</span>`}function dateFormat(s){if(!s)return'—';return new Date(s+'T00:00:00').toLocaleDateString(undefined,{day:'numeric',month:'short',year:'numeric'})}function render(){let total=animals.length,listed=animals.filter(a=>a.status==='Listed').length,sold=animals.filter(a=>a.status==='Sold'),value=animals.filter(a=>a.status!=='Sold').reduce((n,a)=>n+(+a.price||0),0);document.getElementById('stats').innerHTML=[[icons.cow,'Animals',total,'Across your farm',''],[icons.tag,'Available',animals.filter(a=>a.status==='Available').length,'Ready for a new home',''],[icons.cart,'Listed online',listed,'Visible to buyers','orange'],[icons.cash,'Sales recorded',sold.length,'Total '+sold.reduce((n,a)=>n+(+a.price||0),0).toLocaleString(),'']].map(([i,l,v,f,c])=>`<div class="stat"><div class="stat-top">${l}<span class="stat-icon ${c}">${i}</span></div><div class="stat-value">${v}</div><div class="stat-foot">${f}</div></div>`).join('');let recent=[...animals].slice(-4).reverse();document.getElementById('recentAnimals').innerHTML=recent.length?recent.map(a=>`<div class="animal-row"><div class="animal-pic">${animalEmoji(a)}</div><div><div class="animal-main">${esc(a.name)}</div><div class="animal-meta">${esc(a.breed||a.type)} · ${esc(a.age||'Age not set')}</div></div><div class="hide-small">${statusTag(a.status)}</div><div class="hide-small animal-meta">${esc(a.weight||'—')}</div><div class="price">${a.price?money(a.price):'—'}</div></div>`).join(''):'<div class="empty">No animal records yet. Add your first animal to get started.</div>';let acts=[];animals.slice(-4).reverse().forEach(a=>acts.push(`<div class="activity-item"><div class="activity-dot">${icons.cow}</div><div class="activity-copy"><strong>${esc(a.name)}</strong> added to your records<div class="activity-time">Recently added · ${esc(a.type)}</div></div></div>`));sold.slice(-2).forEach(a=>acts.push(`<div class="activity-item"><div class="activity-dot orange">${icons.cash}</div><div class="activity-copy"><strong>${esc(a.name)}</strong> sale recorded · ${money(a.price)}<div class="activity-time">${dateFormat(a.saleDate)}</div></div></div>`));document.getElementById('activity').innerHTML=acts.slice(0,4).join('')||'<div class="empty">Your farm activity will appear here.</div>';let q=(document.getElementById('animalSearch')?.value||'').toLowerCase(),f=document.getElementById('animalFilter')?.value||'all';let rows=animals.filter(a=>(f==='all'||a.status===f)&&[a.name,a.type,a.breed].join(' ').toLowerCase().includes(q));document.getElementById('animalsTable').innerHTML=rows.length?rows.map(tableAnimal).join(''):'<tr><td colspan="6" class="empty">No animals match. Add an animal or clear your search.</td></tr>';let mq=(document.getElementById('marketSearch')?.value||'').toLowerCase(),mf=document.getElementById('marketFilter')?.value||'all';let cards=animals.filter(a=>a.status==='Listed'&&(mf==='all'||a.type===mf)&&[a.name,a.type,a.breed].join(' ').toLowerCase().includes(mq));document.getElementById('listingCount').textContent=cards.length+' listing'+(cards.length===1?'':'s');document.getElementById('listingGrid').innerHTML=cards.length?cards.map(a=>`<article class="listing-card"><div class="listing-photo"><span class="tag listed">For sale</span>${animalEmoji(a)}</div><div class="listing-body"><div class="listing-name">${esc(a.name)} <span data-inline-style="herdbook-inline-3">· ${esc(a.type)}</span></div><div class="listing-detail">${esc(a.breed||'Breed not specified')} · ${esc(a.age||'Age not specified')} · ${esc(a.weight||'Weight not specified')}</div><div class="listing-detail">${esc(a.location||'Kajiado')} · ${esc(a.health||'Health details on request')}</div><div class="listing-bottom"><div class="listing-price">${money(a.price)}</div><div class="listing-actions"><button class="icon-btn" title="Mark sold" onclick="markSold(${a.id})">${icons.cash}</button><button class="icon-btn" title="Remove listing" onclick="unlist(${a.id})">×</button></div></div></div></article>`).join(''):'<div class="panel empty" data-inline-style="herdbook-inline-4">No listings match yet. Add an animal and set its status to Listed to advertise it here.</div>';document.getElementById('salesTable').innerHTML=sold.length?sold.map(a=>`<tr><td><div class="table-animal"><span class="table-emoji">${animalEmoji(a)}</span>${esc(a.name)}</div></td><td>${esc(a.type)}</td><td>${dateFormat(a.saleDate)}</td><td>${esc(a.notes||'—')}</td><td><b>${money(a.price)}</b></td><td>${esc(a.breed||'—')}</td></tr>`).join(''):'<tr><td colspan="6" class="empty">No sales recorded yet. Mark a listed animal as sold to record a sale.</td></tr>';document.getElementById('salesStats').innerHTML=[[icons.cash,'Sales completed',sold.length],[icons.tag,'Total sales value',money(sold.reduce((n,a)=>n+(+a.price||0),0))],[icons.cow,'Animals on farm',animals.filter(a=>a.status!=='Sold').length],[icons.cart,'Currently listed',listed]].map(([i,l,v])=>`<div class="stat"><div class="stat-top">${l}<span class="stat-icon">${i}</span></div><div class="stat-value">${v}</div><div class="stat-foot">Updated with your records</div></div>`).join('')}
+async function compressAnimalPhoto(file){const bitmap=await createImageBitmap(file);const scale=Math.min(1,1200/bitmap.width,900/bitmap.height);const canvas=document.createElement('canvas');canvas.width=Math.round(bitmap.width*scale);canvas.height=Math.round(bitmap.height*scale);canvas.getContext('2d').drawImage(bitmap,0,0,canvas.width,canvas.height);bitmap.close();const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/jpeg',.78));return await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(blob)})}function tableAnimal(a){return`<tr><td><div class="table-animal"><span class="table-emoji">${animalEmoji(a)}</span><span>${esc(a.name)}</span></div></td><td>${esc(a.type)} · ${esc(a.breed||'—')}</td><td>${esc(a.age||'—')}</td><td>${esc(a.weight||'—')}</td><td>${statusTag(a.status)}</td><td><b>${money(a.price)}</b></td></tr>`}function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function navigate(page){document.querySelectorAll('.section').forEach(x=>x.classList.remove('show'));document.getElementById('page-'+page).classList.add('show');document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===page));document.getElementById('crumb').textContent=({overview:'Overview',animals:'My animals',market:'Marketplace',sales:'Sales & records'})[page];window.scrollTo(0,0)}document.getElementById('nav').addEventListener('click',e=>{let b=e.target.closest('[data-page]');if(b)navigate(b.dataset.page)});function openModal(){document.getElementById('modal').classList.add('open')}function closeModal(){document.getElementById('modal').classList.remove('open')}document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});document.getElementById('animalForm').addEventListener('submit',async e=>{e.preventDefault();let d=Object.fromEntries(new FormData(e.target));const photoFile=d.photoFile;delete d.photoFile;if(photoFile&&photoFile.size)d.image=await compressAnimalPhoto(photoFile);animals.push({id:Date.now(),...d,price:+d.price||0,emoji:({Cattle:'🐄',Goat:'🐐',Sheep:'🐑',Chicken:'🐓',Donkey:'🫏',Camel:'🐪',Pig:'🐖'}[d.type]||'🐂')});persist();render();e.target.reset();closeModal();toast('Animal saved to your farm records.')});function markSold(id){let a=animals.find(x=>x.id===id);a.status='Sold';a.saleDate=new Date().toISOString().slice(0,10);persist();render();toast(a.name+' marked as sold.')}function unlist(id){let a=animals.find(x=>x.id===id);a.status='Available';persist();render();toast(a.name+' listing removed.')}function toast(t){let el=document.getElementById('toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2500)}['animalSearch','animalFilter','marketSearch','marketFilter'].forEach(id=>document.getElementById(id).addEventListener('input',render));document.getElementById('dateText').textContent=new Date().toLocaleDateString(undefined,{weekday:'short',day:'numeric',month:'short',year:'numeric'});render();
+</script>
+  </body>
+</html>

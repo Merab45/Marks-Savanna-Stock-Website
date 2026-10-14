@@ -1,0 +1,325 @@
+/* Theme colors and shared page defaults */
+:root {
+  --green:#254d36;
+  --dark:#193c29;
+  --cream:#f8f7f1;
+  --ink:#21342a;
+  --muted:#78847b;
+  --line:#e5e8df
+}
+* {
+  box-sizing:border-box
+}
+body {
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font:14px 'DM Sans',sans-serif;
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr
+}
+/* Brand and farm introduction panel */
+.visual {
+  background:linear-gradient(0deg,#163823ad,#1d352b30),url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1400&q=85') center/cover;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  padding:8%
+}
+.brand {
+  position:absolute;
+  top:30px;
+  left:34px;
+  color:white;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  text-decoration:none;
+  font:800 17px Manrope
+}
+.mark {
+  height:38px;
+  width:38px;
+  border-radius:11px;
+  background:#ffffff20;
+  display:grid;
+  place-items:center;
+  border:1px solid #ffffff55
+}
+.mark svg {
+  width:22px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7
+}
+.quote {
+  color:white;
+  max-width:440px
+}
+.quote small {
+  font-size:10px;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+  color:#e0e8dc
+}
+.quote h2 {
+  font:700 clamp(30px,4vw,50px)/1.14 Manrope;
+  letter-spacing:-1.8px;
+  margin:13px 0
+}
+.quote p {
+  font-size:13px;
+  color:#e0e8de
+}
+/* Sign-in form layout */
+.form-side {
+  display:grid;
+  place-items:center;
+  padding:32px
+}
+.box {
+  width:min(400px,100%)
+}
+.toplink {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:62px
+}
+.toplink a {
+  font-size:11px;
+  color:var(--green);
+  text-decoration:none;
+  font-weight:700
+}
+.toplink .mobilebrand {
+  display:none
+}
+.eyebrow {
+  color:#82917f;
+  text-transform:uppercase;
+  font-size:10px;
+  letter-spacing:1.5px;
+  font-weight:700
+}
+.h1 {
+  font:700 30px Manrope;
+  letter-spacing:-1px;
+  margin:10px 0 6px
+}
+.sub {
+  color:var(--muted);
+  font-size:12px;
+  margin:0 0 25px
+}
+/* Form fields and validation feedback */
+.field {
+  display:grid;
+  gap:7px;
+  margin:14px 0
+}
+.field label {
+  font-size:11px;
+  font-weight:700;
+  color:#56645a
+}
+.field input {
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:7px;
+  padding:12px;
+  font:inherit;
+  font-size:12px
+}
+.field input:focus {
+  outline:none;
+  border-color:#8eaa88;
+  box-shadow:0 0 0 3px #315b4312
+}
+.forgot {
+  display:block;
+  text-align:right;
+  color:var(--green);
+  font-weight:600;
+  font-size:10px;
+  text-decoration:none;
+  margin-top:-6px
+}
+.submit {
+  width:100%;
+  border:0;
+  background:var(--green);
+  color:white;
+  border-radius:7px;
+  padding:13px;
+  font-weight:700;
+  margin-top:20px
+}
+.submit:hover {
+  background:var(--dark)
+}
+.note {
+  margin:16px 0 0;
+  background:#edf1e7;
+  border-radius:7px;
+  padding:10px;
+  font-size:10px;
+  color:#617060;
+  line-height:1.5
+}
+.divider {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:22px 0;
+  color:#a0a99f;
+  font-size:10px
+}
+.divider:before,.divider:after {
+  content:'';
+  height:1px;
+  background:var(--line);
+  flex:1
+}
+.bottom {
+  text-align:center;
+  color:var(--muted);
+  font-size:11px
+}
+.bottom a {
+  color:var(--green);
+  font-weight:700;
+  text-decoration:none
+}
+.copyright {
+  margin-top:46px;
+  text-align:center;
+  color:#9aa39b;
+  font-size:10px
+}
+.error {
+  font-size:11px;
+  color:#a04832;
+  margin:10px 0 0;
+  display:none
+}
+.error.show {
+  display:block
+}
+/* Responsive layout */
+@media(max-width:700px) {
+  body {
+    display:block
+  }
+  .visual {
+    display:none
+  }
+  .form-side {
+    min-height:100vh;
+    padding:24px
+  }
+  .toplink {
+    margin:0 0 64px
+  }
+  .toplink .mobilebrand {
+    display:block;
+    color:var(--ink);
+    font:800 15px Manrope
+  }
+  .h1 {
+    font-size:27px
+  }
+}
+
+/* Sign-in help and account benefits */
+.benefits {
+  display:grid;
+  gap:12px;
+  margin-top:28px
+}
+.benefits div {
+  display:flex;
+  align-items:center;
+  gap:13px;
+  border-top:1px solid #ffffff3b;
+  padding-top:12px;
+  color:#f0f4ec;
+  font-size:12px
+}
+.benefits b {
+  font:700 10px Manrope;
+  color:#dce9bc
+}
+.password-wrap {
+  display:flex;
+  position:relative
+}
+.password-wrap input {
+  width:100%;
+  padding-right:58px
+}
+.toggle {
+  position:absolute;
+  right:8px;
+  top:50%;
+  transform:translateY(-50%);
+  border:0;
+  background:none;
+  color:#315b43;
+  font-size:10px;
+  font-weight:700;
+  padding:8px
+}
+.login-options {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:3px 0 11px
+}
+.remember {
+  display:flex;
+  align-items:center;
+  gap:7px;
+  font-size:10px;
+  color:#69766c
+}
+.remember input {
+  accent-color:#315b43
+}
+.login-options .forgot {
+  margin:0
+}
+.submit {
+  transition:background .2s,transform .2s
+}
+.submit:hover {
+  transform:translateY(-1px)
+}
+
+/* M-Pesa information panel details */
+[data-inline-style="sign-in-inline-1"] {
+  margin-top: 18px !important;
+  padding: 14px !important;
+  border: 1px solid #e5e8df !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+}
+
+[data-inline-style="sign-in-inline-2"] {
+  font: 700 12px Manrope !important;
+  color: #254d36 !important;
+}
+
+[data-inline-style="sign-in-inline-3"] {
+  font-size: 10px !important;
+  line-height: 1.6 !important;
+  color: #78847b !important;
+  margin: 7px 0 !important;
+}
+
+[data-inline-style="sign-in-inline-4"] {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  color: #254d36 !important;
+}

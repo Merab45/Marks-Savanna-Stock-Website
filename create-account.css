@@ -1,0 +1,212 @@
+/* Theme colors and shared page defaults */
+:root {
+  --green:#254d36;
+  --deep:#193c29;
+  --cream:#f8f7f1;
+  --ink:#21342a;
+  --muted:#78847b;
+  --line:#e5e8df
+}
+* {
+  box-sizing:border-box
+}
+body {
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font:14px 'DM Sans',sans-serif;
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr
+}
+/* Brand and farm introduction panel */
+.visual {
+  background:linear-gradient(0deg,#163823ad,#1d352b30),url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1400&q=85') center/cover;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  padding:8%
+}
+.brand {
+  position:absolute;
+  top:30px;
+  left:34px;
+  color:white;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  text-decoration:none;
+  font:800 17px Manrope
+}
+.mark {
+  height:38px;
+  width:38px;
+  border-radius:11px;
+  background:#ffffff20;
+  display:grid;
+  place-items:center;
+  border:1px solid #ffffff55
+}
+.mark svg {
+  width:22px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7
+}
+.quote {
+  color:white;
+  max-width:440px
+}
+.quote small {
+  font-size:10px;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+  color:#e0e8dc
+}
+.quote h2 {
+  font:700 clamp(30px,4vw,50px)/1.14 Manrope;
+  letter-spacing:-1.8px;
+  margin:13px 0
+}
+.quote p {
+  font-size:13px;
+  color:#e0e8de
+}
+/* Account creation form layout */
+.form-side {
+  display:grid;
+  place-items:center;
+  padding:32px
+}
+.box {
+  width:min(400px,100%)
+}
+.toplink {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:40px
+}
+.toplink a {
+  font-size:11px;
+  color:var(--green);
+  text-decoration:none;
+  font-weight:700
+}
+.toplink .mobilebrand {
+  display:none
+}
+.eyebrow {
+  color:#82917f;
+  text-transform:uppercase;
+  font-size:10px;
+  letter-spacing:1.5px;
+  font-weight:700
+}
+.h1 {
+  font:700 30px Manrope;
+  letter-spacing:-1px;
+  margin:10px 0 6px
+}
+.sub {
+  color:var(--muted);
+  font-size:12px;
+  margin:0 0 20px
+}
+/* Form fields and validation feedback */
+.field {
+  display:grid;
+  gap:7px;
+  margin:11px 0
+}
+.field label {
+  font-size:11px;
+  font-weight:700;
+  color:#56645a
+}
+.field input {
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:7px;
+  padding:11px;
+  font:inherit;
+  font-size:12px
+}
+.field input:focus {
+  outline:none;
+  border-color:#8eaa88;
+  box-shadow:0 0 0 3px #315b4312
+}
+.submit {
+  width:100%;
+  border:0;
+  background:var(--green);
+  color:white;
+  border-radius:7px;
+  padding:13px;
+  font-weight:700;
+  margin-top:11px;
+  cursor:pointer
+}
+.submit:hover {
+  background:var(--deep)
+}
+.note {
+  margin:13px 0 0;
+  background:#edf1e7;
+  border-radius:7px;
+  padding:10px;
+  font-size:10px;
+  color:#617060;
+  line-height:1.5
+}
+.bottom {
+  text-align:center;
+  color:var(--muted);
+  font-size:11px;
+  margin-top:18px
+}
+.bottom a {
+  color:var(--green);
+  font-weight:700;
+  text-decoration:none
+}
+.error {
+  font-size:11px;
+  color:#a04832;
+  margin:9px 0 0;
+  display:none
+}
+.error.show {
+  display:block
+}
+.copyright {
+  margin-top:27px;
+  text-align:center;
+  color:#9aa39b;
+  font-size:10px
+}
+/* Responsive layout */
+@media(max-width:700px) {
+  body {
+    display:block
+  }
+  .visual {
+    display:none
+  }
+  .form-side {
+    min-height:100vh;
+    padding:24px
+  }
+  .toplink {
+    margin:0 0 46px
+  }
+  .toplink .mobilebrand {
+    display:block;
+    color:var(--ink);
+    font:800 15px Manrope
+  }
+  .h1 {
+    font-size:27px
+  }
+}

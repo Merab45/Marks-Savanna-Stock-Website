@@ -1,0 +1,916 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+/* Theme colors and shared page defaults */
+:root {
+  --ink:#1f3028;
+  --muted:#7b877e;
+  --line:#e8e9e1;
+  --paper:#fff;
+  --bg:#f6f5ef;
+  --green:#315b43;
+  --lime:#d9edb9;
+  --orange:#dc8156;
+  --soft:#f1f3eb;
+  --shadow:0 9px 28px #26392a0a
+}
+* {
+  box-sizing:border-box
+}
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'DM Sans',sans-serif;
+  font-size:14px
+}
+button,input,select,textarea {
+  font:inherit
+}
+button {
+  cursor:pointer
+}
+/* Dashboard shell and sidebar */
+.shell {
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:246px minmax(0,1fr)
+}
+aside {
+  background:#fbfbf8;
+  border-right:1px solid var(--line);
+  padding:27px 18px;
+  display:flex;
+  flex-direction:column;
+  position:sticky;
+  top:0;
+  height:100vh
+}
+.brand {
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:0 9px 33px
+}
+.brand-mark {
+  width:36px;
+  height:36px;
+  background:var(--green);
+  border-radius:11px;
+  display:grid;
+  place-items:center;
+  color:#fff
+}
+.brand-name {
+  font:800 18px Manrope,sans-serif;
+  letter-spacing:-.6px
+}
+.brand-sub {
+  font-size:10px;
+  color:var(--muted);
+  letter-spacing:1.3px;
+  text-transform:uppercase;
+  margin-top:1px
+}
+.nav-label {
+  font-size:10px;
+  color:#9aa39a;
+  text-transform:uppercase;
+  letter-spacing:1.4px;
+  padding:0 12px;
+  margin:0 0 10px
+}
+.nav {
+  display:grid;
+  gap:4px
+}
+.nav button {
+  border:0;
+  background:none;
+  color:#67756b;
+  text-align:left;
+  padding:11px 12px;
+  border-radius:9px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:600
+}
+.nav button:hover {
+  background:#f1f3eb
+}
+.nav button.active {
+  background:#eaf0e4;
+  color:var(--green)
+}
+.nav svg {
+  width:17px;
+  height:17px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.8
+}
+.farm-card {
+  margin-top:auto;
+  background:#f1f2ea;
+  border-radius:12px;
+  padding:14px
+}
+.farm-card .small {
+  color:var(--muted);
+  font-size:11px
+}
+.farm-name {
+  font-weight:700;
+  margin:6px 0 11px
+}
+.farm-bottom {
+  border-top:1px solid #dfe2d7;
+  padding-top:10px;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-size:11px;
+  color:var(--muted)
+}
+.avatar {
+  width:28px;
+  height:28px;
+  background:#e0d2bd;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-weight:700;
+  color:#634b39
+}
+/* Main records workspace and page header */
+.main {
+  min-width:0
+}
+.topbar {
+  height:72px;
+  border-bottom:1px solid var(--line);
+  background:#fbfbf8b5;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 42px
+}
+.crumb {
+  font-size:12px;
+  color:var(--muted)
+}
+.crumb b {
+  color:var(--ink);
+  font-weight:600
+}
+.top-actions {
+  display:flex;
+  align-items:center;
+  gap:19px
+}
+.today {
+  font-size:12px;
+  color:var(--muted)
+}
+.notify {
+  border:0;
+  background:none;
+  position:relative;
+  color:#627066
+}
+.notify:after {
+  content:'';
+  width:6px;
+  height:6px;
+  background:var(--orange);
+  border:2px solid #fbfbf8;
+  border-radius:50%;
+  position:absolute;
+  right:1px;
+  top:0
+}
+.mobile-brand {
+  display:none
+}
+.content {
+  max-width:1450px;
+  margin:auto;
+  padding:34px 42px 54px
+}
+.heading-row {
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  margin-bottom:24px
+}
+.eyebrow {
+  color:#819080;
+  font-size:10px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  font-weight:700;
+  margin-bottom:8px
+}
+.page-title {
+  font:700 28px Manrope,sans-serif;
+  letter-spacing:-1px;
+  margin:0
+}
+.subtitle {
+  color:var(--muted);
+  margin:6px 0 0;
+  font-size:13px
+}
+.primary {
+  border:0;
+  border-radius:8px;
+  background:var(--green);
+  color:white;
+  padding:11px 15px;
+  font-weight:700;
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  box-shadow:0 3px 9px #315b4320
+}
+.primary:hover {
+  background:#244a34
+}
+.primary svg {
+  width:15px;
+  height:15px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:2
+}
+.quiet {
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--ink);
+  padding:9px 12px;
+  border-radius:8px;
+  font-weight:600
+}
+/* Farm summary cards */
+.stats {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-bottom:22px
+}
+.stat {
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:11px;
+  padding:17px 18px;
+  box-shadow:var(--shadow)
+}
+.stat-top {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:var(--muted);
+  font-size:12px
+}
+.stat-icon {
+  width:29px;
+  height:29px;
+  border-radius:8px;
+  display:grid;
+  place-items:center;
+  background:#eff3e8;
+  color:var(--green)
+}
+.stat-icon.orange {
+  background:#fbefe8;
+  color:#c8764f
+}
+.stat-icon svg {
+  width:15px;
+  height:15px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.7
+}
+.stat-value {
+  font:700 25px Manrope,sans-serif;
+  letter-spacing:-1px;
+  margin-top:13px
+}
+.stat-foot {
+  font-size:11px;
+  color:var(--muted);
+  margin-top:4px
+}
+.stat-foot strong {
+  color:var(--green)
+}
+.grid {
+  display:grid;
+  grid-template-columns:minmax(0,1.65fr) minmax(270px,.85fr);
+  gap:16px
+}
+.panel {
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:11px;
+  box-shadow:var(--shadow);
+  overflow:hidden
+}
+.panel-head {
+  padding:17px 19px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:center
+}
+.panel-title {
+  font:700 14px Manrope,sans-serif
+}
+.panel-sub {
+  font-size:11px;
+  color:var(--muted);
+  margin-top:4px
+}
+.text-link {
+  border:0;
+  background:none;
+  color:var(--green);
+  font-size:11px;
+  font-weight:700
+}
+/* Animal inventory rows */
+.animal-list {
+  padding:0 19px
+}
+.animal-row {
+  display:grid;
+  grid-template-columns:42px minmax(100px,1fr) 85px 100px 80px;
+  align-items:center;
+  gap:10px;
+  padding:13px 0;
+  border-bottom:1px solid #f0f0eb
+}
+.animal-row:last-child {
+  border:0
+}
+.animal-pic {
+  width:40px;
+  height:40px;
+  border-radius:9px;
+  background:#e9efe2;
+  display:grid;
+  place-items:center;
+  font-size:21px
+}
+.animal-main {
+  font-weight:700;
+  font-size:12px
+}
+.animal-meta {
+  font-size:10px;
+  color:var(--muted);
+  margin-top:4px
+}
+.tag {
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  border-radius:99px;
+  padding:5px 8px;
+  font-size:10px;
+  font-weight:700;
+  white-space:nowrap
+}
+.tag:before {
+  content:'';
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:currentColor
+}
+.tag.available {
+  color:#4d7955;
+  background:#edf4e9
+}
+.tag.listed {
+  color:#b46a3a;
+  background:#fbf0e5
+}
+.tag.sold {
+  color:#797d79;
+  background:#f0f1ef
+}
+.price {
+  font-size:11px;
+  font-weight:700;
+  text-align:right
+}
+.activity {
+  padding:3px 18px 12px
+}
+.activity-item {
+  display:flex;
+  gap:12px;
+  padding:13px 0;
+  border-bottom:1px solid #f0f0eb
+}
+.activity-item:last-child {
+  border:0
+}
+.activity-dot {
+  width:29px;
+  height:29px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#edf3e7;
+  color:var(--green);
+  flex:none
+}
+.activity-dot.orange {
+  background:#fcf0e7;
+  color:#c8774d
+}
+.activity-dot svg {
+  width:14px;
+  height:14px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.8
+}
+.activity-copy {
+  font-size:11px;
+  line-height:1.5
+}
+.activity-copy strong {
+  font-weight:700
+}
+.activity-time {
+  font-size:10px;
+  color:#9ba49c;
+  margin-top:3px
+}
+.promo {
+  margin-top:15px;
+  border-radius:11px;
+  padding:17px 18px;
+  background:#315b43;
+  color:white;
+  position:relative;
+  overflow:hidden
+}
+.promo:after {
+  content:'✳';
+  position:absolute;
+  right:12px;
+  top:-14px;
+  font-size:75px;
+  color:#ffffff12
+}
+.promo-label {
+  font-size:10px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:#cfdfc7
+}
+.promo h3 {
+  font:700 15px Manrope,sans-serif;
+  margin:8px 0
+}
+.promo p {
+  color:#d7e3d3;
+  font-size:11px;
+  line-height:1.55;
+  max-width:240px;
+  margin:0 0 12px
+}
+.promo button {
+  border:0;
+  border-radius:6px;
+  padding:8px 10px;
+  background:var(--lime);
+  color:#23452f;
+  font-weight:700;
+  font-size:10px
+}
+.section {
+  display:none
+}
+.section.show {
+  display:block
+}
+.toolbar {
+  display:flex;
+  gap:9px;
+  align-items:center;
+  margin-bottom:14px
+}
+.search {
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:8px;
+  padding:10px 12px;
+  min-width:220px;
+  outline:none
+}
+.search:focus,input:focus,select:focus,textarea:focus {
+  border-color:#9aaf91;
+  box-shadow:0 0 0 3px #315b4312;
+  outline:none
+}
+.filter {
+  border:1px solid var(--line);
+  background:white;
+  color:var(--ink);
+  padding:10px;
+  border-radius:8px
+}
+.table-wrap {
+  overflow:auto
+}
+.data-table {
+  width:100%;
+  border-collapse:collapse;
+  min-width:700px
+}
+.data-table th {
+  text-align:left;
+  font-size:10px;
+  letter-spacing:.6px;
+  color:#89948a;
+  text-transform:uppercase;
+  padding:12px 15px;
+  background:#fafaf7;
+  border-bottom:1px solid var(--line)
+}
+.data-table td {
+  padding:13px 15px;
+  border-bottom:1px solid #f0f0eb;
+  font-size:12px
+}
+.data-table tr:last-child td {
+  border-bottom:0
+}
+.table-animal {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700
+}
+.table-emoji {
+  width:32px;
+  height:32px;
+  border-radius:8px;
+  background:#eff3e8;
+  display:grid;
+  place-items:center;
+  font-size:17px
+}
+.empty {
+  padding:42px;
+  text-align:center;
+  color:var(--muted)
+}
+/* Marketplace livestock cards */
+.listing-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:15px
+}
+.listing-card {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:11px;
+  overflow:hidden;
+  box-shadow:var(--shadow)
+}
+.listing-photo {
+  height:128px;
+  background:linear-gradient(130deg,#e5ebda,#f4e7d6);
+  display:grid;
+  place-items:center;
+  font-size:55px;
+  position:relative
+}
+.listing-photo span {
+  position:absolute;
+  top:12px;
+  left:12px
+}
+.listing-body {
+  padding:14px
+}
+.listing-name {
+  font:700 14px Manrope,sans-serif
+}
+.listing-detail {
+  color:var(--muted);
+  font-size:11px;
+  margin-top:5px
+}
+.listing-bottom {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:14px;
+  padding-top:12px;
+  border-top:1px solid var(--line)
+}
+.listing-price {
+  font:700 16px Manrope,sans-serif
+}
+.listing-actions {
+  display:flex;
+  gap:7px
+}
+.icon-btn {
+  width:30px;
+  height:30px;
+  border:1px solid var(--line);
+  border-radius:7px;
+  background:#fff;
+  color:var(--green);
+  display:grid;
+  place-items:center
+}
+.icon-btn svg {
+  width:14px;
+  height:14px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.8
+}
+.modal-backdrop {
+  position:fixed;
+  inset:0;
+  background:#17281db8;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:10
+}
+.modal-backdrop.open {
+  display:flex
+}
+/* Animal entry form and feedback */
+.modal {
+  background:#fff;
+  border-radius:13px;
+  width:min(540px,100%);
+  max-height:90vh;
+  overflow:auto;
+  box-shadow:0 20px 80px #101c1540
+}
+.modal-head {
+  padding:20px 22px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:center
+}
+.modal-head h2 {
+  font:700 17px Manrope;
+  margin:0
+}
+.close {
+  border:0;
+  background:none;
+  font-size:22px;
+  color:#78837b
+}
+.form {
+  padding:20px 22px
+}
+.form-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:13px
+}
+.field {
+  display:grid;
+  gap:6px
+}
+.field.full {
+  grid-column:1/-1
+}
+.field label {
+  font-size:11px;
+  font-weight:700;
+  color:#59665c
+}
+.field input,.field select,.field textarea {
+  width:100%;
+  padding:10px;
+  border:1px solid var(--line);
+  border-radius:7px;
+  background:#fff
+}
+.field textarea {
+  resize:vertical;
+  min-height:72px
+}
+.form-foot {
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+  margin-top:19px
+}
+.toast {
+  position:fixed;
+  bottom:24px;
+  right:24px;
+  background:#20382a;
+  color:white;
+  padding:12px 16px;
+  border-radius:8px;
+  box-shadow:var(--shadow);
+  opacity:0;
+  transform:translateY(10px);
+  transition:.2s;
+  pointer-events:none;
+  z-index:20;
+  font-size:12px
+}
+.toast.show {
+  opacity:1;
+  transform:translateY(0)
+}
+/* Responsive dashboard layouts */
+@media(max-width:980px) {
+  .shell {
+    grid-template-columns:210px 1fr
+  }
+  .topbar {
+    padding:0 25px
+  }
+  .content {
+    padding:28px 25px
+  }
+  .grid {
+    grid-template-columns:1fr
+  }
+  .listing-grid {
+    grid-template-columns:repeat(2,1fr)
+  }
+}
+@media(max-width:700px) {
+  .shell {
+    display:block;
+    padding-bottom:66px
+  }
+  aside {
+    position:fixed;
+    z-index:5;
+    top:auto;
+    bottom:0;
+    height:62px;
+    width:100%;
+    padding:5px 7px;
+    background:#fbfbf8;
+    border-top:1px solid var(--line);
+    border-right:0
+  }
+  .brand,.nav-label,.farm-card {
+    display:none
+  }
+  .nav {
+    height:100%;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    gap:0
+  }
+  .nav button {
+    padding:7px 5px;
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+    font-size:9px
+  }
+  .nav svg {
+    height:17px
+  }
+  .topbar {
+    height:58px;
+    padding:0 17px
+  }
+  .mobile-brand {
+    display:block;
+    font:800 16px Manrope
+  }
+  .crumb {
+    display:none
+  }
+  .top-actions {
+    gap:12px
+  }
+  .today {
+    font-size:10px
+  }
+  .content {
+    padding:25px 16px
+  }
+  .heading-row {
+    align-items:flex-start;
+    gap:12px
+  }
+  .page-title {
+    font-size:24px
+  }
+  .heading-row>.primary {
+    font-size:11px;
+    padding:10px
+  }
+  .stats {
+    grid-template-columns:repeat(2,1fr);
+    gap:9px
+  }
+  .stat {
+    padding:13px
+  }
+  .stat-value {
+    font-size:22px
+  }
+  .animal-list {
+    padding:0 12px
+  }
+  .animal-row {
+    grid-template-columns:38px minmax(90px,1fr) 72px;
+    gap:8px
+  }
+  .animal-row .hide-small {
+    display:none
+  }
+  .listing-grid {
+    grid-template-columns:1fr 1fr;
+    gap:9px
+  }
+  .listing-photo {
+    height:95px;
+    font-size:42px
+  }
+  .listing-body {
+    padding:10px
+  }
+  .listing-name {
+    font-size:12px
+  }
+  .listing-detail {
+    font-size:10px
+  }
+  .listing-price {
+    font-size:13px
+  }
+  .toolbar {
+    flex-wrap:wrap
+  }
+  .search {
+    flex:1;
+    min-width:150px
+  }
+  .form-grid {
+    grid-template-columns:1fr
+  }
+  .field.full {
+    grid-column:auto
+  }
+}
+@media(max-width:400px) {
+  .listing-grid {
+    grid-template-columns:1fr
+  }
+  .stats {
+    gap:7px
+  }
+  .stat-top {
+    font-size:11px
+  }
+}
+
+[data-inline-style="herdbook-inline-1"] {
+  display: block !important;
+  margin: 15px 6px !important;
+  padding: 10px 12px !important;
+  border: 1px solid #e8e9e1 !important;
+  border-radius: 8px !important;
+  color: #315b43 !important;
+  text-decoration: none !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+}
+
+[data-inline-style="herdbook-inline-2"] {
+  margin-left: auto !important;
+  color: var(--muted) !important;
+  font-size: 11px !important;
+}
+
+[data-inline-style="herdbook-inline-3"] {
+  font-weight: 400 !important;
+  color: var(--muted) !important;
+}
+
+[data-inline-style="herdbook-inline-4"] {
+  grid-column: 1/-1 !important;
+}
